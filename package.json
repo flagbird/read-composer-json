@@ -1,0 +1,10 @@
+{
+  "name": "read-composer-json",
+  "version": "1.0.0",
+  "description": "Reads the content of a PHP composer.json and makes it accessible in a GitHub workflow.",
+  "main": "index.js",
+  "homepage": "https://flagbit.de",
+  "dependencies": {
+    "@actions/core": "^1.6.0"
+  }
+}

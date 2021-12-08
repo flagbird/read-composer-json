@@ -1,0 +1,17 @@
+name: "read-composer-json"
+description: "Reads the content of a PHP composer.json and makes it accessible in a GitHub workflow."
+branding:
+  icon: "package"  
+  color: "blue"
+inputs:
+  composer_file:
+    description: "Path to composer.json file"
+    required: false
+    default: "composer.json"
+  debug:
+    description: "Outouts all env variables"
+    required: false
+    default: "0"
+runs:
+  using: "node12"
+  main: "index.js"
