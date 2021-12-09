@@ -1,0 +1,76 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Read Composer file"
+        id: "composer"
+        uses:  "flagbird/read-composer-json@main"
+        with:
+          composer_file: ".github/composer1.json"
+
+      - name: "Check name"
+        run: "exit 1"
+        if: env.composer_name != 'flagbit/name'
+
+      - name: "Check description"
+        run: "exit 1"
+        if: env.composer_description != 'My description'
+
+      - name: "Check type"
+        run: "exit 1"
+        if: env.composer_type != 'my-type'
+
+      - name: "Check license"
+        run: "exit 1"
+        if: env.composer_license != 'MIT'
+
+      - name: "Check version"
+        run: "exit 1"
+        if: env.composer_version != '1.0.0'
+
+      - name: "Check author name"
+        run: "exit 1"
+        if: env.composer_authors_0_name != 'Flagbit'
+
+      - name: "Check author role"
+        run: "exit 1"
+        if: env.composer_authors_0_role != 'Developer'
+
+      - name: "Check required php"
+        run: "exit 1"
+        if: env.composer_require_php != '^8.1'
+
+      - name: "Check required symfony package"
+        run: "exit 1"
+        if: env.composer_require_symfony-symfony != '^1.0'
+
+      - name: "Check required dev phpunit package"
+        run: "exit 1"
+        if: env.composer_require-dev_phpunit-phpunit != '^9.4'
+
+      - name: "Check psr-4 autoloading"
+        run: "exit 1"
+        if: env.composer_autoload_psr-4_My-Namespaces- != 'src/'
+
+      - name: "Check psr-4 dev autoloading"
+        run: "exit 1"
+        if: env.composer_autoload-dev_psr-4_My-Namespaces-Tests- != 'tests/'
+
+      - name: "Check extra value"
+        run: "exit 1"
+        if: env.composer_extra_extra-key != 'extra-value'
+
+      - name: "Check config value"
+        run: "exit 1"
+        if: env.composer_config_platform-check != 'false'
