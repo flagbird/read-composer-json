@@ -15,7 +15,7 @@ jobs:
 
       - name: "Read Composer file"
         id: "composer"
-        uses:  "flagbird/read-composer-json@main"
+        uses:  "flagbit/read-composer-json@main"
         with:
           composer_file: ".github/composer1.json"
 
