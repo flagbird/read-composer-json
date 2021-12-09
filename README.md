@@ -12,10 +12,10 @@ This action gives you access to the composer.json file content in form of enviro
       run: "echo ${{ env.composer_name }}"
 ```
 
-## Access packages
+## Access packages and namespaces
 
-Because composer packages contain slashes or backslashes in keys, they are not a valid env-name. In this case both
-will be replaced with dashes. For example:
+Because composer package and namespace keys contain slashes and backslashes, they can't be translated into a valid
+env-name. In this case both will be replaced with dashes. For example:
 
 ``` yaml
     - name: "Get Symfony package version constraint"
@@ -35,9 +35,9 @@ to the correct composer path.
         composer_file: "path/to/composer.json"
 ```
 
-## debugging
+## Debugging
 
-You don't know how the key wanted looks like? Enable debugging and all composer env-variables will be printed during
+You don't know how the wanted key looks like? Enable debugging and all composer env-variables will be printed during
 a running workflow.
 
 ``` yaml
